@@ -23,7 +23,10 @@ func main() {
 	fmt.Scan(&input)
 
 	// Modifying the seed with user input
-	seed = (seed + int64(input)) % 100
+       seed = (seed + int64(input)) % 100
+       if seed < 0 {
+               seed = -seed
+       }
 
 	// Selecting the strings based on modified seed
 	choice1 := superheroes[seed%int64(len(superheroes))]
